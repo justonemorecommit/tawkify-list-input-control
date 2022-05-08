@@ -5,6 +5,7 @@ import {
   Checkbox,
   FormGroup,
   FormControlLabel,
+  Skeleton,
 } from '@mui/material';
 
 import { ListInputControl } from './components/ListInputControl';
@@ -31,12 +32,15 @@ const apiFetchList = () => {
 
 function App() {
   const [list, setList] = React.useState<string[]>([]);
+  const [loading, setLoading] = React.useState(false);
   const [disabled, setDisabled] = React.useState(false);
   const [error, setError] = React.useState('');
 
   React.useEffect(() => {
+    setLoading(true);
     apiFetchList()
       .then((list) => {
+        setLoading(false);
         setList(list);
       })
       .catch(() => {
@@ -85,15 +89,22 @@ function App() {
             label="Disabled"
           />
         </FormGroup>
-        <ListInputControl
-          label="Top 3 Priorities"
-          placeholder="Type an item to add and press enter"
-          required
-          disabled={disabled}
-          max={3}
-          list={list}
-          onListChange={handleListChange}
-        />
+        {!loading ? (
+          <ListInputControl
+            label="Top 3 Priorities"
+            placeholder="Type an item to add and press enter"
+            required
+            disabled={disabled}
+            max={3}
+            list={list}
+            onListChange={handleListChange}
+          />
+        ) : (
+          <>
+            <Skeleton variant="text" />
+            <Skeleton variant="rectangular" width="100%" height={118} />
+          </>
+        )}
       </Box>
     </Box>
   );
