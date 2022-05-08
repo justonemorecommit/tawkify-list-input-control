@@ -8,11 +8,11 @@ A simle list input control written with React, TypeScript, and MUI
 
    A label for an input
 
-2. placeholder: `string`
+2. placeholder: `string`, optional
 
    A placeholder that will be used in input control
 
-3. required: `boolean`
+3. required: `boolean`, optional
 
    If true, validate that the list is not empty
 
@@ -20,7 +20,7 @@ A simle list input control written with React, TypeScript, and MUI
 
    A number of list items cannot exceed this value
 
-5. disabled: `boolean`
+5. disabled: `boolean`, optional
 
    A boolean attribute that enables/disables list input
 
