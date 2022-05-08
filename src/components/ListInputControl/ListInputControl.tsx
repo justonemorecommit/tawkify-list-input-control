@@ -36,9 +36,7 @@ export function ListInputControl({
   const handleInputChange = React.useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
       setInputValue(e.target.value);
-      if (e.target.value) {
-        setInputError('');
-      }
+      setInputError('');
     },
     []
   );
