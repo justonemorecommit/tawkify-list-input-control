@@ -25,7 +25,9 @@ A simle list input control written with React, TypeScript, and MUI
    A boolean attribute that enables/disables list input
 
 6. list: `string[]`
+
    A current list of items
 
 7. onListChange: `(items: string[]) => void`
+
    This event is triggered when the list of items is changed
